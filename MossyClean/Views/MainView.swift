@@ -6,7 +6,15 @@ struct MainView: View {
     @State private var mascotPulse = false
     @StateObject private var scanner = FileScanner()
     
-    private let greetings = ["Ready to clean!", "The grounds look good today.", "Found some dust!", "Scanning... beep boop.", "Hello, Groundskeeper!"]
+    private var mascotGreetings: [String] {
+        if scanner.isScanning {
+            return ["Cleaning the yard!", "Found some twigs!", "Almost done...", "Bit-perfect precision!"]
+        } else if !scanner.duplicates.isEmpty {
+            return ["The grounds need attention.", "Found some clones!", "Ready to tidy up?", "I've spotted dust!"]
+        } else {
+            return ["The yard is pristine!", "Ready to clean!", "Hello, Groundskeeper!", "The grounds look good today."]
+        }
+    }
     
     enum Tab {
         case scanner, organizer, settings
@@ -55,19 +63,25 @@ struct MainView: View {
                         if let message = mascotMessage {
                             Text(message)
                                 .font(.industrialMono)
-                                .padding(.horizontal, 10)
-                                .padding(.vertical, 6)
+                                .multilineTextAlignment(.center)
+                                .padding(.horizontal, 12)
+                                .padding(.vertical, 8)
                                 .background(.ultraThinMaterial)
-                                .cornerRadius(8)
-                                .modifier(Theme.IndustrialBorder(cornerRadius: 8))
-                                .transition(.scale.combined(with: .opacity))
-                                .padding(.bottom, 8)
+                                .cornerRadius(12)
+                                .modifier(Theme.IndustrialBorder(cornerRadius: 12))
+                                .fixedSize(horizontal: false, vertical: true)
+                                .frame(maxWidth: 160) // Ensure it wraps within sidebar
+                                .transition(.asymmetric(
+                                    insertion: .scale.combined(with: .opacity),
+                                    removal: .opacity
+                                ))
+                                .padding(.bottom, 4)
                         }
                         
                         Button {
                             withAnimation(.spring(response: 0.3, dampingFraction: 0.6)) {
                                 mascotPulse = true
-                                mascotMessage = greetings.randomElement()
+                                mascotMessage = mascotGreetings.randomElement()
                             }
                             // Reset pulse
                             DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
@@ -95,10 +109,10 @@ struct MainView: View {
                         .buttonStyle(PlainButtonStyle())
                         .help("Click Mossy for a status report!")
                     }
-                    .padding(.bottom, 15)
+                    .padding(.bottom, 12)
                     .frame(maxWidth: .infinity)
                 }
-                .frame(height: 160)
+                .frame(minHeight: 160) // Changed from fixed height to minHeight
                 .background(.ultraThinMaterial) // Pro Max: Glass sidebar base
             }
             .frame(minWidth: 200)

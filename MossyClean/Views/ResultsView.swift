@@ -129,7 +129,7 @@ struct GroupedDuplicateCard: View {
     
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
-            Text("Similar Artifacts (\(files.count))")
+            Text("Identical Duplicates (\(files.count))")
                 .font(.industrialMono)
                 .padding(.horizontal, 16)
                 .padding(.vertical, 8)
