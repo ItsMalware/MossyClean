@@ -1,0 +1,450 @@
+{
+  "builtTestProducts" : [
+
+  ],
+  "copyCommands" : {
+
+  },
+  "explicitTargetDependencyImportCheckingMode" : {
+    "none" : {
+
+    }
+  },
+  "generatedSourceTargetSet" : [
+
+  ],
+  "pluginDescriptions" : [
+
+  ],
+  "swiftCommands" : {
+    "C.MossyClean-arm64-apple-macosx26.0-debug.module" : {
+      "executable" : "/Library/Developer/CommandLineTools/usr/bin/swiftc",
+      "fileList" : "/Users/yaz_malware_honeypot/Library/CloudStorage/GoogleDrive-yison@cyberamira.co/My Drive/Intel_llc/99_Working/apps_workinf/Find Dupes/.build/arm64-apple-macosx/debug/MossyClean.build/sources",
+      "importPath" : "/Users/yaz_malware_honeypot/Library/CloudStorage/GoogleDrive-yison@cyberamira.co/My Drive/Intel_llc/99_Working/apps_workinf/Find Dupes/.build/arm64-apple-macosx/debug/Modules",
+      "inputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/yaz_malware_honeypot/Library/CloudStorage/GoogleDrive-yison@cyberamira.co/My Drive/Intel_llc/99_Working/apps_workinf/Find Dupes/MossyClean/Models/FileModel.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/yaz_malware_honeypot/Library/CloudStorage/GoogleDrive-yison@cyberamira.co/My Drive/Intel_llc/99_Working/apps_workinf/Find Dupes/MossyClean/Models/FileOrganizer.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/yaz_malware_honeypot/Library/CloudStorage/GoogleDrive-yison@cyberamira.co/My Drive/Intel_llc/99_Working/apps_workinf/Find Dupes/MossyClean/Models/FileScanner.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/yaz_malware_honeypot/Library/CloudStorage/GoogleDrive-yison@cyberamira.co/My Drive/Intel_llc/99_Working/apps_workinf/Find Dupes/MossyClean/Models/HashEngine.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/yaz_malware_honeypot/Library/CloudStorage/GoogleDrive-yison@cyberamira.co/My Drive/Intel_llc/99_Working/apps_workinf/Find Dupes/MossyClean/MossyCleanApp.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/yaz_malware_honeypot/Library/CloudStorage/GoogleDrive-yison@cyberamira.co/My Drive/Intel_llc/99_Working/apps_workinf/Find Dupes/MossyClean/Theme/Theme.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/yaz_malware_honeypot/Library/CloudStorage/GoogleDrive-yison@cyberamira.co/My Drive/Intel_llc/99_Working/apps_workinf/Find Dupes/MossyClean/Views/MainView.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/yaz_malware_honeypot/Library/CloudStorage/GoogleDrive-yison@cyberamira.co/My Drive/Intel_llc/99_Working/apps_workinf/Find Dupes/MossyClean/Views/OrganizerView.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/yaz_malware_honeypot/Library/CloudStorage/GoogleDrive-yison@cyberamira.co/My Drive/Intel_llc/99_Working/apps_workinf/Find Dupes/MossyClean/Views/RenamePreviewView.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/yaz_malware_honeypot/Library/CloudStorage/GoogleDrive-yison@cyberamira.co/My Drive/Intel_llc/99_Working/apps_workinf/Find Dupes/MossyClean/Views/ResultsView.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/yaz_malware_honeypot/Library/CloudStorage/GoogleDrive-yison@cyberamira.co/My Drive/Intel_llc/99_Working/apps_workinf/Find Dupes/MossyClean/Views/ScannerView.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/yaz_malware_honeypot/Library/CloudStorage/GoogleDrive-yison@cyberamira.co/My Drive/Intel_llc/99_Working/apps_workinf/Find Dupes/MossyClean/Views/SettingsView.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/yaz_malware_honeypot/Library/CloudStorage/GoogleDrive-yison@cyberamira.co/My Drive/Intel_llc/99_Working/apps_workinf/Find Dupes/.build/arm64-apple-macosx/debug/swift-version--1AB21518FC5DEDBE.txt"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/yaz_malware_honeypot/Library/CloudStorage/GoogleDrive-yison@cyberamira.co/My Drive/Intel_llc/99_Working/apps_workinf/Find Dupes/.build/arm64-apple-macosx/debug/MossyClean.build/sources"
+        }
+      ],
+      "isLibrary" : false,
+      "moduleName" : "MossyClean",
+      "moduleOutputPath" : "/Users/yaz_malware_honeypot/Library/CloudStorage/GoogleDrive-yison@cyberamira.co/My Drive/Intel_llc/99_Working/apps_workinf/Find Dupes/.build/arm64-apple-macosx/debug/Modules/MossyClean.swiftmodule",
+      "objects" : [
+        "/Users/yaz_malware_honeypot/Library/CloudStorage/GoogleDrive-yison@cyberamira.co/My Drive/Intel_llc/99_Working/apps_workinf/Find Dupes/.build/arm64-apple-macosx/debug/MossyClean.build/FileModel.swift.o",
+        "/Users/yaz_malware_honeypot/Library/CloudStorage/GoogleDrive-yison@cyberamira.co/My Drive/Intel_llc/99_Working/apps_workinf/Find Dupes/.build/arm64-apple-macosx/debug/MossyClean.build/FileOrganizer.swift.o",
+        "/Users/yaz_malware_honeypot/Library/CloudStorage/GoogleDrive-yison@cyberamira.co/My Drive/Intel_llc/99_Working/apps_workinf/Find Dupes/.build/arm64-apple-macosx/debug/MossyClean.build/FileScanner.swift.o",
+        "/Users/yaz_malware_honeypot/Library/CloudStorage/GoogleDrive-yison@cyberamira.co/My Drive/Intel_llc/99_Working/apps_workinf/Find Dupes/.build/arm64-apple-macosx/debug/MossyClean.build/HashEngine.swift.o",
+        "/Users/yaz_malware_honeypot/Library/CloudStorage/GoogleDrive-yison@cyberamira.co/My Drive/Intel_llc/99_Working/apps_workinf/Find Dupes/.build/arm64-apple-macosx/debug/MossyClean.build/MossyCleanApp.swift.o",
+        "/Users/yaz_malware_honeypot/Library/CloudStorage/GoogleDrive-yison@cyberamira.co/My Drive/Intel_llc/99_Working/apps_workinf/Find Dupes/.build/arm64-apple-macosx/debug/MossyClean.build/Theme.swift.o",
+        "/Users/yaz_malware_honeypot/Library/CloudStorage/GoogleDrive-yison@cyberamira.co/My Drive/Intel_llc/99_Working/apps_workinf/Find Dupes/.build/arm64-apple-macosx/debug/MossyClean.build/MainView.swift.o",
+        "/Users/yaz_malware_honeypot/Library/CloudStorage/GoogleDrive-yison@cyberamira.co/My Drive/Intel_llc/99_Working/apps_workinf/Find Dupes/.build/arm64-apple-macosx/debug/MossyClean.build/OrganizerView.swift.o",
+        "/Users/yaz_malware_honeypot/Library/CloudStorage/GoogleDrive-yison@cyberamira.co/My Drive/Intel_llc/99_Working/apps_workinf/Find Dupes/.build/arm64-apple-macosx/debug/MossyClean.build/RenamePreviewView.swift.o",
+        "/Users/yaz_malware_honeypot/Library/CloudStorage/GoogleDrive-yison@cyberamira.co/My Drive/Intel_llc/99_Working/apps_workinf/Find Dupes/.build/arm64-apple-macosx/debug/MossyClean.build/ResultsView.swift.o",
+        "/Users/yaz_malware_honeypot/Library/CloudStorage/GoogleDrive-yison@cyberamira.co/My Drive/Intel_llc/99_Working/apps_workinf/Find Dupes/.build/arm64-apple-macosx/debug/MossyClean.build/ScannerView.swift.o",
+        "/Users/yaz_malware_honeypot/Library/CloudStorage/GoogleDrive-yison@cyberamira.co/My Drive/Intel_llc/99_Working/apps_workinf/Find Dupes/.build/arm64-apple-macosx/debug/MossyClean.build/SettingsView.swift.o"
+      ],
+      "otherArguments" : [
+        "-target",
+        "arm64-apple-macosx14.0",
+        "-incremental",
+        "-enable-batch-mode",
+        "-serialize-diagnostics",
+        "-index-store-path",
+        "/Users/yaz_malware_honeypot/Library/CloudStorage/GoogleDrive-yison@cyberamira.co/My Drive/Intel_llc/99_Working/apps_workinf/Find Dupes/.build/arm64-apple-macosx/debug/index/store",
+        "-Onone",
+        "-enable-testing",
+        "-j10",
+        "-DSWIFT_PACKAGE",
+        "-DDEBUG",
+        "-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE",
+        "-module-cache-path",
+        "/Users/yaz_malware_honeypot/Library/CloudStorage/GoogleDrive-yison@cyberamira.co/My Drive/Intel_llc/99_Working/apps_workinf/Find Dupes/.build/arm64-apple-macosx/debug/ModuleCache",
+        "-parseable-output",
+        "-Xfrontend",
+        "-entry-point-function-name",
+        "-Xfrontend",
+        "MossyClean_main",
+        "-color-diagnostics",
+        "-swift-version",
+        "6",
+        "-I",
+        "/Library/Developer/CommandLineTools/Library/Developer/Frameworks",
+        "-L",
+        "/Library/Developer/CommandLineTools/Library/Developer/Frameworks",
+        "-plugin-path",
+        "/Library/Developer/CommandLineTools/usr/lib/swift/host/plugins/testing",
+        "-sdk",
+        "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk",
+        "-g",
+        "-Xcc",
+        "-isysroot",
+        "-Xcc",
+        "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk",
+        "-Xcc",
+        "-fPIC",
+        "-Xcc",
+        "-g",
+        "-package-name",
+        "find_dupes"
+      ],
+      "outputFileMapPath" : "/Users/yaz_malware_honeypot/Library/CloudStorage/GoogleDrive-yison@cyberamira.co/My Drive/Intel_llc/99_Working/apps_workinf/Find Dupes/.build/arm64-apple-macosx/debug/MossyClean.build/output-file-map.json",
+      "outputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/yaz_malware_honeypot/Library/CloudStorage/GoogleDrive-yison@cyberamira.co/My Drive/Intel_llc/99_Working/apps_workinf/Find Dupes/.build/arm64-apple-macosx/debug/MossyClean.build/FileModel.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/yaz_malware_honeypot/Library/CloudStorage/GoogleDrive-yison@cyberamira.co/My Drive/Intel_llc/99_Working/apps_workinf/Find Dupes/.build/arm64-apple-macosx/debug/MossyClean.build/FileOrganizer.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/yaz_malware_honeypot/Library/CloudStorage/GoogleDrive-yison@cyberamira.co/My Drive/Intel_llc/99_Working/apps_workinf/Find Dupes/.build/arm64-apple-macosx/debug/MossyClean.build/FileScanner.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/yaz_malware_honeypot/Library/CloudStorage/GoogleDrive-yison@cyberamira.co/My Drive/Intel_llc/99_Working/apps_workinf/Find Dupes/.build/arm64-apple-macosx/debug/MossyClean.build/HashEngine.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/yaz_malware_honeypot/Library/CloudStorage/GoogleDrive-yison@cyberamira.co/My Drive/Intel_llc/99_Working/apps_workinf/Find Dupes/.build/arm64-apple-macosx/debug/MossyClean.build/MossyCleanApp.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/yaz_malware_honeypot/Library/CloudStorage/GoogleDrive-yison@cyberamira.co/My Drive/Intel_llc/99_Working/apps_workinf/Find Dupes/.build/arm64-apple-macosx/debug/MossyClean.build/Theme.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/yaz_malware_honeypot/Library/CloudStorage/GoogleDrive-yison@cyberamira.co/My Drive/Intel_llc/99_Working/apps_workinf/Find Dupes/.build/arm64-apple-macosx/debug/MossyClean.build/MainView.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/yaz_malware_honeypot/Library/CloudStorage/GoogleDrive-yison@cyberamira.co/My Drive/Intel_llc/99_Working/apps_workinf/Find Dupes/.build/arm64-apple-macosx/debug/MossyClean.build/OrganizerView.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/yaz_malware_honeypot/Library/CloudStorage/GoogleDrive-yison@cyberamira.co/My Drive/Intel_llc/99_Working/apps_workinf/Find Dupes/.build/arm64-apple-macosx/debug/MossyClean.build/RenamePreviewView.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/yaz_malware_honeypot/Library/CloudStorage/GoogleDrive-yison@cyberamira.co/My Drive/Intel_llc/99_Working/apps_workinf/Find Dupes/.build/arm64-apple-macosx/debug/MossyClean.build/ResultsView.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/yaz_malware_honeypot/Library/CloudStorage/GoogleDrive-yison@cyberamira.co/My Drive/Intel_llc/99_Working/apps_workinf/Find Dupes/.build/arm64-apple-macosx/debug/MossyClean.build/ScannerView.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/yaz_malware_honeypot/Library/CloudStorage/GoogleDrive-yison@cyberamira.co/My Drive/Intel_llc/99_Working/apps_workinf/Find Dupes/.build/arm64-apple-macosx/debug/MossyClean.build/SettingsView.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/yaz_malware_honeypot/Library/CloudStorage/GoogleDrive-yison@cyberamira.co/My Drive/Intel_llc/99_Working/apps_workinf/Find Dupes/.build/arm64-apple-macosx/debug/Modules/MossyClean.swiftmodule"
+        }
+      ],
+      "prepareForIndexing" : false,
+      "sources" : [
+        "/Users/yaz_malware_honeypot/Library/CloudStorage/GoogleDrive-yison@cyberamira.co/My Drive/Intel_llc/99_Working/apps_workinf/Find Dupes/MossyClean/Models/FileModel.swift",
+        "/Users/yaz_malware_honeypot/Library/CloudStorage/GoogleDrive-yison@cyberamira.co/My Drive/Intel_llc/99_Working/apps_workinf/Find Dupes/MossyClean/Models/FileOrganizer.swift",
+        "/Users/yaz_malware_honeypot/Library/CloudStorage/GoogleDrive-yison@cyberamira.co/My Drive/Intel_llc/99_Working/apps_workinf/Find Dupes/MossyClean/Models/FileScanner.swift",
+        "/Users/yaz_malware_honeypot/Library/CloudStorage/GoogleDrive-yison@cyberamira.co/My Drive/Intel_llc/99_Working/apps_workinf/Find Dupes/MossyClean/Models/HashEngine.swift",
+        "/Users/yaz_malware_honeypot/Library/CloudStorage/GoogleDrive-yison@cyberamira.co/My Drive/Intel_llc/99_Working/apps_workinf/Find Dupes/MossyClean/MossyCleanApp.swift",
+        "/Users/yaz_malware_honeypot/Library/CloudStorage/GoogleDrive-yison@cyberamira.co/My Drive/Intel_llc/99_Working/apps_workinf/Find Dupes/MossyClean/Theme/Theme.swift",
+        "/Users/yaz_malware_honeypot/Library/CloudStorage/GoogleDrive-yison@cyberamira.co/My Drive/Intel_llc/99_Working/apps_workinf/Find Dupes/MossyClean/Views/MainView.swift",
+        "/Users/yaz_malware_honeypot/Library/CloudStorage/GoogleDrive-yison@cyberamira.co/My Drive/Intel_llc/99_Working/apps_workinf/Find Dupes/MossyClean/Views/OrganizerView.swift",
+        "/Users/yaz_malware_honeypot/Library/CloudStorage/GoogleDrive-yison@cyberamira.co/My Drive/Intel_llc/99_Working/apps_workinf/Find Dupes/MossyClean/Views/RenamePreviewView.swift",
+        "/Users/yaz_malware_honeypot/Library/CloudStorage/GoogleDrive-yison@cyberamira.co/My Drive/Intel_llc/99_Working/apps_workinf/Find Dupes/MossyClean/Views/ResultsView.swift",
+        "/Users/yaz_malware_honeypot/Library/CloudStorage/GoogleDrive-yison@cyberamira.co/My Drive/Intel_llc/99_Working/apps_workinf/Find Dupes/MossyClean/Views/ScannerView.swift",
+        "/Users/yaz_malware_honeypot/Library/CloudStorage/GoogleDrive-yison@cyberamira.co/My Drive/Intel_llc/99_Working/apps_workinf/Find Dupes/MossyClean/Views/SettingsView.swift"
+      ],
+      "tempsPath" : "/Users/yaz_malware_honeypot/Library/CloudStorage/GoogleDrive-yison@cyberamira.co/My Drive/Intel_llc/99_Working/apps_workinf/Find Dupes/.build/arm64-apple-macosx/debug/MossyClean.build",
+      "wholeModuleOptimization" : false
+    }
+  },
+  "swiftFrontendCommands" : {
+
+  },
+  "swiftTargetScanArgs" : {
+    "MossyClean" : [
+      "/Library/Developer/CommandLineTools/usr/bin/swiftc",
+      "-module-name",
+      "MossyClean",
+      "-package-name",
+      "find_dupes",
+      "-c",
+      "/Users/yaz_malware_honeypot/Library/CloudStorage/GoogleDrive-yison@cyberamira.co/My Drive/Intel_llc/99_Working/apps_workinf/Find Dupes/MossyClean/Models/FileModel.swift",
+      "/Users/yaz_malware_honeypot/Library/CloudStorage/GoogleDrive-yison@cyberamira.co/My Drive/Intel_llc/99_Working/apps_workinf/Find Dupes/MossyClean/Models/FileOrganizer.swift",
+      "/Users/yaz_malware_honeypot/Library/CloudStorage/GoogleDrive-yison@cyberamira.co/My Drive/Intel_llc/99_Working/apps_workinf/Find Dupes/MossyClean/Models/FileScanner.swift",
+      "/Users/yaz_malware_honeypot/Library/CloudStorage/GoogleDrive-yison@cyberamira.co/My Drive/Intel_llc/99_Working/apps_workinf/Find Dupes/MossyClean/Models/HashEngine.swift",
+      "/Users/yaz_malware_honeypot/Library/CloudStorage/GoogleDrive-yison@cyberamira.co/My Drive/Intel_llc/99_Working/apps_workinf/Find Dupes/MossyClean/MossyCleanApp.swift",
+      "/Users/yaz_malware_honeypot/Library/CloudStorage/GoogleDrive-yison@cyberamira.co/My Drive/Intel_llc/99_Working/apps_workinf/Find Dupes/MossyClean/Theme/Theme.swift",
+      "/Users/yaz_malware_honeypot/Library/CloudStorage/GoogleDrive-yison@cyberamira.co/My Drive/Intel_llc/99_Working/apps_workinf/Find Dupes/MossyClean/Views/MainView.swift",
+      "/Users/yaz_malware_honeypot/Library/CloudStorage/GoogleDrive-yison@cyberamira.co/My Drive/Intel_llc/99_Working/apps_workinf/Find Dupes/MossyClean/Views/OrganizerView.swift",
+      "/Users/yaz_malware_honeypot/Library/CloudStorage/GoogleDrive-yison@cyberamira.co/My Drive/Intel_llc/99_Working/apps_workinf/Find Dupes/MossyClean/Views/RenamePreviewView.swift",
+      "/Users/yaz_malware_honeypot/Library/CloudStorage/GoogleDrive-yison@cyberamira.co/My Drive/Intel_llc/99_Working/apps_workinf/Find Dupes/MossyClean/Views/ResultsView.swift",
+      "/Users/yaz_malware_honeypot/Library/CloudStorage/GoogleDrive-yison@cyberamira.co/My Drive/Intel_llc/99_Working/apps_workinf/Find Dupes/MossyClean/Views/ScannerView.swift",
+      "/Users/yaz_malware_honeypot/Library/CloudStorage/GoogleDrive-yison@cyberamira.co/My Drive/Intel_llc/99_Working/apps_workinf/Find Dupes/MossyClean/Views/SettingsView.swift",
+      "-I",
+      "/Users/yaz_malware_honeypot/Library/CloudStorage/GoogleDrive-yison@cyberamira.co/My Drive/Intel_llc/99_Working/apps_workinf/Find Dupes/.build/arm64-apple-macosx/debug/Modules",
+      "-target",
+      "arm64-apple-macosx14.0",
+      "-incremental",
+      "-enable-batch-mode",
+      "-serialize-diagnostics",
+      "-index-store-path",
+      "/Users/yaz_malware_honeypot/Library/CloudStorage/GoogleDrive-yison@cyberamira.co/My Drive/Intel_llc/99_Working/apps_workinf/Find Dupes/.build/arm64-apple-macosx/debug/index/store",
+      "-Onone",
+      "-enable-testing",
+      "-j10",
+      "-DSWIFT_PACKAGE",
+      "-DDEBUG",
+      "-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE",
+      "-module-cache-path",
+      "/Users/yaz_malware_honeypot/Library/CloudStorage/GoogleDrive-yison@cyberamira.co/My Drive/Intel_llc/99_Working/apps_workinf/Find Dupes/.build/arm64-apple-macosx/debug/ModuleCache",
+      "-parseable-output",
+      "-Xfrontend",
+      "-entry-point-function-name",
+      "-Xfrontend",
+      "MossyClean_main",
+      "-color-diagnostics",
+      "-swift-version",
+      "6",
+      "-I",
+      "/Library/Developer/CommandLineTools/Library/Developer/Frameworks",
+      "-L",
+      "/Library/Developer/CommandLineTools/Library/Developer/Frameworks",
+      "-plugin-path",
+      "/Library/Developer/CommandLineTools/usr/lib/swift/host/plugins/testing",
+      "-sdk",
+      "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk",
+      "-g",
+      "-Xcc",
+      "-isysroot",
+      "-Xcc",
+      "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk",
+      "-Xcc",
+      "-fPIC",
+      "-Xcc",
+      "-g",
+      "-package-name",
+      "find_dupes",
+      "-driver-use-frontend-path",
+      "/Library/Developer/CommandLineTools/usr/bin/swiftc"
+    ]
+  },
+  "targetDependencyMap" : {
+    "MossyClean" : [
+
+    ]
+  },
+  "testDiscoveryCommands" : {
+
+  },
+  "testEntryPointCommands" : {
+
+  },
+  "traitConfiguration" : {
+    "default" : {
+
+    }
+  },
+  "writeCommands" : {
+    "/Users/yaz_malware_honeypot/Library/CloudStorage/GoogleDrive-yison@cyberamira.co/My Drive/Intel_llc/99_Working/apps_workinf/Find Dupes/.build/arm64-apple-macosx/debug/MossyClean-entitlement.plist" : {
+      "alwaysOutOfDate" : false,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<entitlement-plist>"
+        },
+        {
+          "kind" : "virtual",
+          "name" : "<com.apple.security.get-task-allow>"
+        }
+      ],
+      "outputFilePath" : "/Users/yaz_malware_honeypot/Library/CloudStorage/GoogleDrive-yison@cyberamira.co/My Drive/Intel_llc/99_Working/apps_workinf/Find Dupes/.build/arm64-apple-macosx/debug/MossyClean-entitlement.plist"
+    },
+    "/Users/yaz_malware_honeypot/Library/CloudStorage/GoogleDrive-yison@cyberamira.co/My Drive/Intel_llc/99_Working/apps_workinf/Find Dupes/.build/arm64-apple-macosx/debug/MossyClean.build/sources" : {
+      "alwaysOutOfDate" : false,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<sources-file-list>"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/yaz_malware_honeypot/Library/CloudStorage/GoogleDrive-yison@cyberamira.co/My Drive/Intel_llc/99_Working/apps_workinf/Find Dupes/MossyClean/Models/FileModel.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/yaz_malware_honeypot/Library/CloudStorage/GoogleDrive-yison@cyberamira.co/My Drive/Intel_llc/99_Working/apps_workinf/Find Dupes/MossyClean/Models/FileOrganizer.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/yaz_malware_honeypot/Library/CloudStorage/GoogleDrive-yison@cyberamira.co/My Drive/Intel_llc/99_Working/apps_workinf/Find Dupes/MossyClean/Models/FileScanner.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/yaz_malware_honeypot/Library/CloudStorage/GoogleDrive-yison@cyberamira.co/My Drive/Intel_llc/99_Working/apps_workinf/Find Dupes/MossyClean/Models/HashEngine.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/yaz_malware_honeypot/Library/CloudStorage/GoogleDrive-yison@cyberamira.co/My Drive/Intel_llc/99_Working/apps_workinf/Find Dupes/MossyClean/MossyCleanApp.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/yaz_malware_honeypot/Library/CloudStorage/GoogleDrive-yison@cyberamira.co/My Drive/Intel_llc/99_Working/apps_workinf/Find Dupes/MossyClean/Theme/Theme.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/yaz_malware_honeypot/Library/CloudStorage/GoogleDrive-yison@cyberamira.co/My Drive/Intel_llc/99_Working/apps_workinf/Find Dupes/MossyClean/Views/MainView.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/yaz_malware_honeypot/Library/CloudStorage/GoogleDrive-yison@cyberamira.co/My Drive/Intel_llc/99_Working/apps_workinf/Find Dupes/MossyClean/Views/OrganizerView.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/yaz_malware_honeypot/Library/CloudStorage/GoogleDrive-yison@cyberamira.co/My Drive/Intel_llc/99_Working/apps_workinf/Find Dupes/MossyClean/Views/RenamePreviewView.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/yaz_malware_honeypot/Library/CloudStorage/GoogleDrive-yison@cyberamira.co/My Drive/Intel_llc/99_Working/apps_workinf/Find Dupes/MossyClean/Views/ResultsView.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/yaz_malware_honeypot/Library/CloudStorage/GoogleDrive-yison@cyberamira.co/My Drive/Intel_llc/99_Working/apps_workinf/Find Dupes/MossyClean/Views/ScannerView.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/yaz_malware_honeypot/Library/CloudStorage/GoogleDrive-yison@cyberamira.co/My Drive/Intel_llc/99_Working/apps_workinf/Find Dupes/MossyClean/Views/SettingsView.swift"
+        }
+      ],
+      "outputFilePath" : "/Users/yaz_malware_honeypot/Library/CloudStorage/GoogleDrive-yison@cyberamira.co/My Drive/Intel_llc/99_Working/apps_workinf/Find Dupes/.build/arm64-apple-macosx/debug/MossyClean.build/sources"
+    },
+    "/Users/yaz_malware_honeypot/Library/CloudStorage/GoogleDrive-yison@cyberamira.co/My Drive/Intel_llc/99_Working/apps_workinf/Find Dupes/.build/arm64-apple-macosx/debug/MossyClean.product/Objects.LinkFileList" : {
+      "alwaysOutOfDate" : false,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<link-file-list>"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/yaz_malware_honeypot/Library/CloudStorage/GoogleDrive-yison@cyberamira.co/My Drive/Intel_llc/99_Working/apps_workinf/Find Dupes/.build/arm64-apple-macosx/debug/MossyClean.build/FileModel.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/yaz_malware_honeypot/Library/CloudStorage/GoogleDrive-yison@cyberamira.co/My Drive/Intel_llc/99_Working/apps_workinf/Find Dupes/.build/arm64-apple-macosx/debug/MossyClean.build/FileOrganizer.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/yaz_malware_honeypot/Library/CloudStorage/GoogleDrive-yison@cyberamira.co/My Drive/Intel_llc/99_Working/apps_workinf/Find Dupes/.build/arm64-apple-macosx/debug/MossyClean.build/FileScanner.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/yaz_malware_honeypot/Library/CloudStorage/GoogleDrive-yison@cyberamira.co/My Drive/Intel_llc/99_Working/apps_workinf/Find Dupes/.build/arm64-apple-macosx/debug/MossyClean.build/HashEngine.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/yaz_malware_honeypot/Library/CloudStorage/GoogleDrive-yison@cyberamira.co/My Drive/Intel_llc/99_Working/apps_workinf/Find Dupes/.build/arm64-apple-macosx/debug/MossyClean.build/MainView.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/yaz_malware_honeypot/Library/CloudStorage/GoogleDrive-yison@cyberamira.co/My Drive/Intel_llc/99_Working/apps_workinf/Find Dupes/.build/arm64-apple-macosx/debug/MossyClean.build/MossyCleanApp.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/yaz_malware_honeypot/Library/CloudStorage/GoogleDrive-yison@cyberamira.co/My Drive/Intel_llc/99_Working/apps_workinf/Find Dupes/.build/arm64-apple-macosx/debug/MossyClean.build/OrganizerView.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/yaz_malware_honeypot/Library/CloudStorage/GoogleDrive-yison@cyberamira.co/My Drive/Intel_llc/99_Working/apps_workinf/Find Dupes/.build/arm64-apple-macosx/debug/MossyClean.build/RenamePreviewView.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/yaz_malware_honeypot/Library/CloudStorage/GoogleDrive-yison@cyberamira.co/My Drive/Intel_llc/99_Working/apps_workinf/Find Dupes/.build/arm64-apple-macosx/debug/MossyClean.build/ResultsView.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/yaz_malware_honeypot/Library/CloudStorage/GoogleDrive-yison@cyberamira.co/My Drive/Intel_llc/99_Working/apps_workinf/Find Dupes/.build/arm64-apple-macosx/debug/MossyClean.build/ScannerView.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/yaz_malware_honeypot/Library/CloudStorage/GoogleDrive-yison@cyberamira.co/My Drive/Intel_llc/99_Working/apps_workinf/Find Dupes/.build/arm64-apple-macosx/debug/MossyClean.build/SettingsView.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/yaz_malware_honeypot/Library/CloudStorage/GoogleDrive-yison@cyberamira.co/My Drive/Intel_llc/99_Working/apps_workinf/Find Dupes/.build/arm64-apple-macosx/debug/MossyClean.build/Theme.swift.o"
+        }
+      ],
+      "outputFilePath" : "/Users/yaz_malware_honeypot/Library/CloudStorage/GoogleDrive-yison@cyberamira.co/My Drive/Intel_llc/99_Working/apps_workinf/Find Dupes/.build/arm64-apple-macosx/debug/MossyClean.product/Objects.LinkFileList"
+    },
+    "/Users/yaz_malware_honeypot/Library/CloudStorage/GoogleDrive-yison@cyberamira.co/My Drive/Intel_llc/99_Working/apps_workinf/Find Dupes/.build/arm64-apple-macosx/debug/swift-version--1AB21518FC5DEDBE.txt" : {
+      "alwaysOutOfDate" : true,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<swift-get-version>"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Library/Developer/CommandLineTools/usr/bin/swiftc"
+        }
+      ],
+      "outputFilePath" : "/Users/yaz_malware_honeypot/Library/CloudStorage/GoogleDrive-yison@cyberamira.co/My Drive/Intel_llc/99_Working/apps_workinf/Find Dupes/.build/arm64-apple-macosx/debug/swift-version--1AB21518FC5DEDBE.txt"
+    }
+  }
+}
