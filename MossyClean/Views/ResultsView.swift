@@ -22,6 +22,19 @@ struct ResultsView: View {
                 Spacer()
                 
                 Button(action: {
+                    scanner.saveScan()
+                }) {
+                    Text("Save Scan")
+                        .font(.industrialHeadline)
+                        .padding(.horizontal, 16)
+                        .padding(.vertical, 8)
+                        .background(Theme.secondaryBackground.opacity(0.5))
+                        .modifier(Theme.IndustrialBorder(cornerRadius: 8))
+                }
+                .buttonStyle(PlainButtonStyle())
+                .padding(.trailing, 10)
+                
+                Button(action: {
                     dismiss()
                 }) {
                     Text("Close")

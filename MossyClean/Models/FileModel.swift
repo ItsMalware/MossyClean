@@ -1,7 +1,7 @@
 import Foundation
 
-struct FileModel: Identifiable, Hashable {
-    let id = UUID()
+struct FileModel: Identifiable, Hashable, Codable {
+    let id: UUID
     let url: URL
     let name: String
     let extensionName: String
@@ -11,7 +11,7 @@ struct FileModel: Identifiable, Hashable {
     var isDuplicate: Bool = false
     var isSelectedForCleanup: Bool = false
     var isProtected: Bool = false
-    
+    var isReference: Bool = false    
     var formattedSize: String {
         ByteCountFormatter.string(fromByteCount: size, countStyle: .file)
     }

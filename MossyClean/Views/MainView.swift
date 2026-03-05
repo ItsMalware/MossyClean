@@ -94,7 +94,7 @@ struct MainView: View {
                                 }
                             }
                         } label: {
-                            if let mascotURL = URL(string: "file:///Users/yaz_malware_honeypot/.gemini/antigravity/brain/bda18899-1f42-4191-9507-eb79a4331322/uploaded_media_1769280217124.png") {
+                            if let mascotURL = Bundle.module.url(forResource: "agent", withExtension: "png") {
                                 AsyncImage(url: mascotURL) { image in
                                     image.resizable()
                                          .aspectRatio(contentMode: .fit)

@@ -12,7 +12,10 @@ let package = Package(
     targets: [
         .executableTarget(
             name: "MossyClean",
-            path: "MossyClean"
+            path: "MossyClean",
+            resources: [
+                .process("Resources")
+            ]
         )
     ]
 )

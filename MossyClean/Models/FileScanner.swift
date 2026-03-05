@@ -1,5 +1,12 @@
 import Foundation
 import Combine
+import Combine
+
+struct ScanData: Codable {
+    let scannedFiles: [FileModel]
+    let duplicates: [String: [FileModel]]
+    let potentialSpaceSaved: Int64
+}
 
 @MainActor
 class FileScanner: ObservableObject {
@@ -9,6 +16,7 @@ class FileScanner: ObservableObject {
     @Published var progress: Double = 0
     @Published var statusMessage: String = ""
     @Published var potentialSpaceSaved: Int64 = 0
+    private var scanTask: Task<Void, Error>?
     
     // Code Protection: Guard these extensions from auto-deletion
     private let protectedExtensions: Set<String> = [
@@ -16,10 +24,64 @@ class FileScanner: ObservableObject {
         "json", "yml", "yaml", "xml", "sh", "zsh", "env", "md", "markdown"
     ]
     
-    private var scanTask: Task<Void, Never>?
-    
     func scanHomeDirectory() {
-        scan(at: FileManager.default.homeDirectoryForCurrentUser)
+        scan(referenceDrive: FileManager.default.homeDirectoryForCurrentUser, targetDrives: [])
+    }
+    
+    // MARK: - Save and Load Data
+    
+    private func savePath() -> URL {
+        FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0].appendingPathComponent("MossyClean_LastScan.json")
+    }
+
+    var hasSavedScan: Bool { 
+        FileManager.default.fileExists(atPath: savePath().path) 
+    }
+
+    func saveScan() {
+        statusMessage = "Saving scan..."
+        isScanning = true
+        
+        Task.detached(priority: .userInitiated) {
+            let dataToSave = ScanData(scannedFiles: await self.scannedFiles, duplicates: await self.duplicates, potentialSpaceSaved: await self.potentialSpaceSaved)
+            if let encoded = try? JSONEncoder().encode(dataToSave) {
+                try? encoded.write(to: await self.savePath())
+                Task { @MainActor in
+                    self.statusMessage = "Scan saved to Documents."
+                    self.isScanning = false
+                }
+            } else {
+                Task { @MainActor in
+                    self.statusMessage = "Failed to encode scan data."
+                    self.isScanning = false
+                }
+            }
+        }
+    }
+
+    func loadScan() {
+        statusMessage = "Loading saved scan..."
+        isScanning = true
+        progress = 0.5
+        
+        Task.detached(priority: .userInitiated) {
+            if let data = try? Data(contentsOf: await self.savePath()),
+               let decoded = try? JSONDecoder().decode(ScanData.self, from: data) {
+                Task { @MainActor in
+                    self.scannedFiles = decoded.scannedFiles
+                    self.duplicates = decoded.duplicates
+                    self.potentialSpaceSaved = decoded.potentialSpaceSaved
+                    self.statusMessage = "Loaded previous scan."
+                    self.isScanning = false
+                    self.progress = 1.0
+                }
+            } else {
+                 Task { @MainActor in 
+                     self.statusMessage = "Failed to load scan." 
+                     self.isScanning = false
+                 }
+            }
+        }
     }
     
     func manualToggleSelection(for file: FileModel) {
@@ -40,7 +102,7 @@ class FileScanner: ObservableObject {
         }
     }
     
-    func scan(at url: URL) {
+    func scan(referenceDrive: URL?, targetDrives: [URL]) {
         isScanning = true
         progress = 0
         statusMessage = "Starting scan..."
@@ -48,111 +110,143 @@ class FileScanner: ObservableObject {
         duplicates = [:]
         potentialSpaceSaved = 0
         
-        scanTask = Task {
-            do {
-                let fileManager = FileManager.default
+        let drivesToScan = [referenceDrive].compactMap { $0 } + targetDrives
+        guard !drivesToScan.isEmpty else {
+            isScanning = false
+            statusMessage = "No drives selected."
+            return
+        }
+        
+        let protectedExts = protectedExtensions
+        
+        scanTask = Task.detached(priority: .userInitiated) { [weak self] in
+            guard let self = self else { return }
+            let fileManager = FileManager.default
                 let keys: [URLResourceKey] = [.nameKey, .isDirectoryKey, .fileSizeKey, .contentModificationDateKey]
                 
-                // Move discovery to a detached task to avoid blocking MainActor
-                let allFileURLs = try await Task.detached(priority: .userInitiated) {
-                    guard let enumerator = fileManager.enumerator(at: url, includingPropertiesForKeys: keys, options: [.skipsHiddenFiles, .skipsPackageDescendants]) else {
-                        throw NSError(domain: "ScannerError", code: 1, userInfo: [NSLocalizedDescriptionKey: "Could not create enumerator"])
-                    }
-                    var urls: [URL] = []
-                    while let fileURL = enumerator.nextObject() as? URL {
-                        urls.append(fileURL)
-                    }
-                    return urls
-                }.value
-                
-                let totalFiles = allFileURLs.count
                 var currentCount = 0
                 var tempScannedFiles: [FileModel] = []
+                var sizeGroups: [Int64: [FileModel]] = [:]
                 
                 // Discovery Phase
-                for fileURL in allFileURLs {
-                    if Task.isCancelled { return }
-                    
-                    let resourceValues = try fileURL.resourceValues(forKeys: Set(keys))
-                    if resourceValues.isDirectory == true { continue }
-                    
-                    let file = FileModel(
-                        url: fileURL,
-                        name: resourceValues.name ?? fileURL.lastPathComponent,
-                        extensionName: fileURL.pathExtension,
-                        size: Int64(resourceValues.fileSize ?? 0),
-                        modificationDate: resourceValues.contentModificationDate ?? Date(),
-                        isProtected: protectedExtensions.contains(fileURL.pathExtension.lowercased())
-                    )
-                    
-                    tempScannedFiles.append(file)
-                    
-                    currentCount += 1
-                    if currentCount % 50 == 0 {
-                        let currentProgress = Double(currentCount) / Double(totalFiles)
-                        self.progress = currentProgress * 0.2
-                        self.statusMessage = "Discovered \(currentCount) files..."
-                    }
-                }
-                
-                // Hashing Phase
-                var hashGroups: [String: [FileModel]] = [:]
-                var finalScannedFiles: [FileModel] = []
-                
-                for (index, var file) in tempScannedFiles.enumerated() {
-                    if Task.isCancelled { return }
-                    
-                    self.statusMessage = "Hashing: \(file.name)"
-                    self.progress = 0.2 + (Double(index) / Double(tempScannedFiles.count) * 0.8)
-                    
-                    // Perform hashing on a background thread
-                    let fileURL = file.url
-                    let hashValue = try await Task.detached(priority: .userInitiated) {
-                        try HashEngine.calculateSHA256(for: fileURL)
-                    }.value
-                    
-                    file.hash = hashValue
-                    
-                    if hashGroups[hashValue] != nil {
-                        hashGroups[hashValue]?.append(file)
-                        file.isDuplicate = true
-                    } else {
-                        hashGroups[hashValue] = [file]
+                for targetDrive in drivesToScan {
+                    let isRef = (targetDrive == referenceDrive)
+                    guard let enumerator = fileManager.enumerator(at: targetDrive, includingPropertiesForKeys: keys, options: [.skipsHiddenFiles, .skipsPackageDescendants]) else {
+                        continue
                     }
                     
-                    finalScannedFiles.append(file)
-                }
-                
-                // Finalize results
-                let actualDuplicates = hashGroups.filter { $0.value.count > 1 }
-                
-                var space: Int64 = 0
-                for group in actualDuplicates.values {
-                    // Automatically mark all but the newest as selected for cleanup
-                    // UNLESS the file is protected (code/config)
-                    let sorted = group.sorted { $0.modificationDate > $1.modificationDate }
-                    for (index, file) in sorted.enumerated() {
-                        if index > 0 && !file.isProtected {
-                            if let originalIndex = finalScannedFiles.firstIndex(where: { $0.id == file.id }) {
-                                finalScannedFiles[originalIndex].isSelectedForCleanup = true
-                                space += finalScannedFiles[originalIndex].size
+                    while let fileURL = enumerator.nextObject() as? URL {
+                        if Task.isCancelled { return }
+                        
+                        if let resourceValues = try? fileURL.resourceValues(forKeys: Set(keys)), resourceValues.isDirectory != true {
+                            let fileSize = Int64(resourceValues.fileSize ?? 0)
+                            let file = FileModel(
+                                id: UUID(),
+                                url: fileURL,
+                                name: resourceValues.name ?? fileURL.lastPathComponent,
+                                extensionName: fileURL.pathExtension,
+                                size: fileSize,
+                                modificationDate: resourceValues.contentModificationDate ?? Date(),
+                                isProtected: protectedExts.contains(fileURL.pathExtension.lowercased()),
+                                isReference: isRef
+                            )
+                            
+                            tempScannedFiles.append(file)
+                            sizeGroups[fileSize, default: []].append(file)
+                            currentCount += 1
+                            
+                            if currentCount % 1000 == 0 {
+                                let displayCount = currentCount
+                                await MainActor.run {
+                                    self.statusMessage = "Discovered \(displayCount) files..."
+                                }
+                                await Task.yield()
                             }
                         }
                     }
                 }
                 
-                self.scannedFiles = finalScannedFiles
-                self.duplicates = actualDuplicates
-                self.potentialSpaceSaved = space
-                self.isScanning = false
-                self.statusMessage = "Scan complete! Found \(actualDuplicates.count) duplicate groups."
+                // Hashing Phase
+                var hashGroups: [String: [FileModel]] = [:]
+                var processedCount = 0
+                let totalFiles = tempScannedFiles.count
+                var finalFiles: [FileModel] = []
+                finalFiles.reserveCapacity(totalFiles)
                 
-            } catch {
-                if !Task.isCancelled {
-                    self.isScanning = false
-                    self.statusMessage = "Error: \(error.localizedDescription)"
+                for var file in tempScannedFiles {
+                    if Task.isCancelled { return }
+                    
+                    let duplicatesInSizeGroup = (sizeGroups[file.size]?.count ?? 0) > 1
+                    
+                    if duplicatesInSizeGroup {
+                        do {
+                            let hashValue = try HashEngine.calculateSHA256(for: file.url)
+                            file.hash = hashValue
+                            
+                            if hashGroups[hashValue] != nil {
+                                hashGroups[hashValue]?.append(file)
+                                file.isDuplicate = true
+                            } else {
+                                hashGroups[hashValue] = [file]
+                            }
+                        } catch {
+                            // Skip hashing file if unreadable
+                        }
+                    }
+                    
+                    finalFiles.append(file)
+                    processedCount += 1
+                    
+                    if processedCount % 500 == 0 {
+                        let progressVal = Double(processedCount) / Double(totalFiles)
+                        let statusText = duplicatesInSizeGroup ? "Hashing potentials: \(file.name)" : "Processing files..."
+                        await MainActor.run {
+                            self.progress = progressVal
+                            self.statusMessage = statusText
+                        }
+                        await Task.yield()
+                    }
                 }
-            }
+                
+                // Finalize results
+                let validDuplicates = hashGroups.filter { $0.value.count > 1 }
+                var spaceReclaimed: Int64 = 0
+                var idsToCleanup = Set<UUID>()
+                
+                for group in validDuplicates.values {
+                    let sorted = group.sorted { (f1, f2) -> Bool in
+                        if f1.isReference && !f2.isReference { return true }
+                        if !f1.isReference && f2.isReference { return false }
+                        return f1.modificationDate > f2.modificationDate
+                    }
+                    
+                    for (index, file) in sorted.enumerated() {
+                        if index > 0 && !file.isProtected && !file.isReference {
+                            idsToCleanup.insert(file.id)
+                            spaceReclaimed += file.size
+                        }
+                    }
+                }
+                
+                for i in 0..<finalFiles.count {
+                    if idsToCleanup.contains(finalFiles[i].id) {
+                        finalFiles[i].isSelectedForCleanup = true
+                    }
+                }
+                
+                // Update Main Actor with results
+                let actualDuplicates = validDuplicates
+                let potentialSpace = spaceReclaimed
+                let scanned = finalFiles
+                
+                await MainActor.run {
+                    self.scannedFiles = scanned
+                    self.duplicates = actualDuplicates
+                    self.potentialSpaceSaved = potentialSpace
+                    self.isScanning = false
+                    self.statusMessage = "Scan complete! Found \(actualDuplicates.count) duplicate groups."
+                    self.progress = 1.0
+                }
         }
     }
     
