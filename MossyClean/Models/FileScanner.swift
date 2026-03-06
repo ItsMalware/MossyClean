@@ -180,7 +180,16 @@ class FileScanner: ObservableObject {
                     
                     if duplicatesInSizeGroup {
                         do {
-                            let hashValue = try HashEngine.calculateSHA256(for: file.url)
+                            let lastUpdate = Date()
+                            let hashValue = try await HashEngine.calculateSHA256(for: file.url, fileSize: file.size) { fileProgress in
+                                // Only update every 0.25 seconds to avoid flooding MainActor
+                                if Date().timeIntervalSince(lastUpdate) > 0.25 {
+                                    let percentage = Int(fileProgress * 100)
+                                    await MainActor.run {
+                                        self.statusMessage = "Analyzing large file: \(file.name) (\(percentage)%)"
+                                    }
+                                }
+                            }
                             file.hash = hashValue
                             
                             if hashGroups[hashValue] != nil {
