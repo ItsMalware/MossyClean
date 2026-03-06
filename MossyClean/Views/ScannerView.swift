@@ -187,32 +187,26 @@ struct ScannerView: View {
                                 Text("Found \(scanner.duplicates.count) Duplicate Groups")
                                     .font(.system(.headline, design: .monospaced))
                             }
-                                                       NavigationLink(
-                                destination: ResultsView(scanner: scanner),
-                                isActive: $navigatingToResults
-                            ) {
-                                Button(action: {
-                                    navigatingToResults = true
-                                }) {
-                                    Text("Review & Cleanup")
-                                        .font(.industrialHeadline)
-                                        .padding(.horizontal, 32)
-                                        .padding(.vertical, 14)
-                                        .background(
-                                            LinearGradient(
-                                                colors: [Theme.accentColor, Theme.accentColor.opacity(0.8)],
-                                                startPoint: .top,
-                                                endPoint: .bottom
-                                            )
+                                                       Button(action: {
+                                navigatingToResults = true
+                            }) {
+                                Text("Review & Cleanup")
+                                    .font(.industrialHeadline)
+                                    .padding(.horizontal, 32)
+                                    .padding(.vertical, 14)
+                                    .background(
+                                        LinearGradient(
+                                            colors: [Theme.accentColor, Theme.accentColor.opacity(0.8)],
+                                            startPoint: .top,
+                                            endPoint: .bottom
                                         )
-                                        .foregroundColor(.black)
-                                        .cornerRadius(12)
-                                        .shadow(color: Theme.accentColor.opacity(0.3), radius: 15, y: 5)
-                                }
-                                .buttonStyle(PlainButtonStyle())
+                                    )
+                                    .foregroundColor(.black)
+                                    .cornerRadius(12)
+                                    .shadow(color: Theme.accentColor.opacity(0.3), radius: 15, y: 5)
                             }
                             .buttonStyle(PlainButtonStyle())
-                            .modifier(Theme.HapticPulse(isActive: false)) 
+                            .modifier(Theme.HapticPulse(isActive: false))
                             
                             Text(scanner.potentialSpaceSaved > 0 ? "Potential space to reclaim: \(ByteCountFormatter.string(fromByteCount: scanner.potentialSpaceSaved, countStyle: .file))" : "Mac state: Optimized")
                                 .font(.industrialMono)
@@ -220,6 +214,10 @@ struct ScannerView: View {
                         }
                         .padding(40)
                         .modifier(Theme.GlassBackground()) // Pro Max: Glass results card
+                        .sheet(isPresented: $navigatingToResults) {
+                            ResultsView(scanner: scanner)
+                                .frame(minWidth: 700, minHeight: 500)
+                        }
                     } else {
                         // Removed Home Directory quick link as its now handled via explicit drag/drop target
                     }
